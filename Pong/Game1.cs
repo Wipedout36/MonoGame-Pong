@@ -67,6 +67,24 @@ namespace Pong
                 ballPosition.X += ballSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
 
+            if(ballPosition.Y > _graphics.PreferredBackBufferHeight - ballTexture.Height / 2)
+            {
+                ballPosition.Y = _graphics.PreferredBackBufferHeight - ballTexture.Height / 2;
+            }
+            else if (ballPosition.Y < ballTexture.Height / 2)
+            {
+                ballPosition.Y = ballTexture.Height / 2;
+            }
+
+            if (ballPosition.X > _graphics.PreferredBackBufferWidth - ballTexture.Width / 2)
+            {
+                ballPosition.X = _graphics.PreferredBackBufferWidth - ballTexture.Width / 2;
+            }
+            else if (ballPosition.X < ballTexture.Width / 2)
+            {
+                ballPosition.X = ballTexture.Width / 2;
+            }
+
             base.Update(gameTime);
         }
 
